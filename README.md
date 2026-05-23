@@ -1,47 +1,85 @@
-# TemplateCursoJavascriptPythonDocker
-Template para o uso da montagem dos exercícios de Lógica de Programação em Javascript, Python com Virtualização em Docker.
-a# 🚀 TemplateCursoJavascriptPythonDocker
+# 🚀 TemplateCursoJavascriptPythonDocker
 
-Template educacional para a montagem e organização de exercícios de **Lógica de Programação**, utilizando **Javascript**, **Python** e **virtualização com Docker**, com foco em boas práticas, estrutura clara e ambiente padronizado de desenvolvimento.
+Template educacional para exercícios e projetos de **Lógica de Programação**, utilizando:
 
----
+- 🌐 JavaScript
+- 🐍 Python
+- 🐳 Docker
 
-## 📌 Sobre o Projeto
-
-Este repositório foi criado como um **template base** para cursos, estudos e treinamentos em **Lógica de Programação**, permitindo que alunos e desenvolvedores iniciantes trabalhem com múltiplas linguagens e tecnologias modernas em um ambiente consistente e profissional.
-
-O projeto une **front-end e back-end**, além de introduzir conceitos importantes de **virtualização**, preparando o aluno para cenários reais do mercado de desenvolvimento.
+O objetivo deste projeto é fornecer uma estrutura moderna, organizada e padronizada para estudos, cursos e treinamentos em programação.
 
 ---
 
-## 🧠 Objetivos
+## 📚 Sobre o Projeto
 
-- Facilitar o aprendizado de **lógica de programação**
-- Padronizar a estrutura dos exercícios
-- Trabalhar com múltiplas linguagens no mesmo projeto
-- Introduzir o uso de **Docker** desde o início
-- Estimular boas práticas de organização de código
+O **TemplateCursoJavascriptPythonDocker** foi desenvolvido para auxiliar estudantes e desenvolvedores iniciantes na prática de lógica de programação utilizando múltiplas linguagens e tecnologias modernas em um único ambiente.
 
----
+Além do desenvolvimento de algoritmos, o projeto também introduz conceitos importantes de:
 
-## 🛠️ Tecnologias Utilizadas
+- organização de projetos
+- separação de responsabilidades
+- virtualização de ambiente
+- padronização de desenvolvimento
+- boas práticas de código
 
-### 🌐 Front-end
-- **HTML5** – Estrutura semântica e moderna
-- **CSS3** – Estilização responsiva e organizada
-- **JavaScript Nativo (Vanilla JS)** – Manipulação do DOM e lógica de programação sem frameworks
-
-### 🐍 Back-end / Lógica
-- **Python** – Exercícios de lógica, algoritmos e estrutura de dados
-- **JavaScript** – Comparação de lógica entre linguagens
-
-### 📦 Infraestrutura
-- **Docker** – Virtualização do ambiente de desenvolvimento
-- **Docker Compose** – Organização e execução dos containers
+Tudo isso utilizando Docker para tornar o ambiente mais profissional e portátil.
 
 ---
 
-## 📂 Estrutura do Projeto (Exemplo)
+# 🧠 Objetivos
+
+✅ Facilitar o aprendizado de lógica de programação  
+✅ Padronizar exercícios e atividades  
+✅ Trabalhar com múltiplas linguagens  
+✅ Introduzir Docker desde o início  
+✅ Simular ambientes reais de desenvolvimento  
+✅ Incentivar boas práticas de organização de código
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+## 🌐 Front-end
+
+- **HTML5**
+  - Estruturação semântica das páginas
+
+- **CSS3**
+  - Estilização moderna e responsiva
+
+- **JavaScript (Vanilla JS)**
+  - Manipulação de DOM
+  - Algoritmos e lógica de programação
+  - Exercícios interativos
+
+---
+
+## 🐍 Back-end / Lógica
+
+- **Python**
+  - Algoritmos
+  - Estruturas de repetição
+  - Estruturas condicionais
+  - Manipulação de dados
+  - Exercícios de lógica
+
+- **JavaScript**
+  - Comparação lógica entre linguagens
+  - Exercícios práticos
+
+---
+
+## 🐳 Infraestrutura
+
+- **Docker**
+  - Virtualização do ambiente
+
+- **Docker Compose**
+  - Gerenciamento e execução dos containers
+
+---
+
+# 📂 Estrutura do Projeto
 
 ```bash
 📦 TemplateCursoJavascriptPythonDocker
@@ -49,12 +87,93 @@ O projeto une **front-end e back-end**, além de introduzir conceitos importante
  ┃ ┣ 📜 exercicio_01.html
  ┃ ┣ 📜 exercicio_02.js
  ┃ ┗ 📜 README.md
+ ┃
  ┣ 📂 python
  ┃ ┣ 📜 exercicio_01.py
  ┃ ┣ 📜 exercicio_02.py
  ┃ ┗ 📜 README.md
+ ┃
  ┣ 📂 docker
  ┃ ┣ 📜 Dockerfile
  ┃ ┗ 📜 docker-compose.yml
+ ┃
  ┣ 📜 README.md
  ┗ 📜 .gitignore
+```
+
+---
+
+# 🚀 Como Utilizar
+
+## 1️⃣ Clonar o Repositório
+
+```bash
+git clone https://github.com/AlissonRochaDev/TemplateCursoJavascriptPythonDocker.git
+```
+
+---
+
+## 2️⃣ Acessar a Pasta
+
+```bash
+cd TemplateCursoJavascriptPythonDocker
+```
+
+---
+
+## 3️⃣ Executar com Docker
+
+```bash
+docker-compose up -d
+```
+
+---
+
+# 🎯 Público-Alvo
+
+Este projeto é ideal para:
+
+- estudantes de programação
+- cursos técnicos
+- treinamentos em TI
+- aulas de lógica de programação
+- desenvolvedores iniciantes
+- professores e instrutores
+
+---
+
+# 📌 Futuras Implementações
+
+- [ ] Exercícios automatizados
+- [ ] Sistema de correção
+- [ ] Interface web para desafios
+- [ ] Banco de exercícios
+- [ ] Integração com APIs
+- [ ] Ambiente completo de testes
+
+---
+
+# 👨‍💻 Autor
+
+Desenvolvido por **Alisson Fernando Rocha Trindade**
+
+🔗 GitHub:
+https://github.com/AlissonRochaDev
+
+---
+
+# ⭐ Contribuição
+
+Contribuições são bem-vindas!
+
+Sinta-se à vontade para abrir:
+- Issues
+- Pull Requests
+- Sugestões
+- Melhorias
+
+---
+
+# 📄 Licença
+
+Este projeto está sob a licença MIT.
