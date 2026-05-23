@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>8ª Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Trabalhando com (alert) do Javascript, concatenação de Variáveis e Eventos (onchange).</h2>
+
+        <div class="form-group">
+            <label for="exemplo_select">Selecione uma das Opções:</label>
+            <select id="exemplo_select" onchange="selecioneAlgumDado(this.value)">
+                <option value="">Selecione</option>
+                <option value="Fácil">Fácil</option>
+                <option value="Médio">Médio</option>
+                <option value="Difícil">Difícil</option>
+            </select>
+        </div>
+    </main>
+
+    <script>
+
+        function selecioneAlgumDado(dificuldade){
+            alert("Você selecionou o nível de dificuldade: " + dificuldade)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - Financiamento</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Trabalhando com Calculos.</h2>
+
+        <div class="form-group">
+            <label for="valor_bem">Valor do Bem:</label>
+            <input type="text" id="valor_bem" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="num_parcelas">Número de Parcelas:</label>
+            <input type="text" id="num_parcelas" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="valor_entrada">Valor da Entrada:</label>
+            <input type="text" id="valor_entrada" placeholder="Digite aqui...">
+        </div>
+
+        <button type="button" class="btn success" id="btn_calcular">
+            Calcular Parcelas
+        </button>
+    </main>
+
+    <script>
+
+        const btnCalcular = document.getElementById("btn_calcular")
+
+        btnCalcular.addEventListener("click", CalcularParcelas)
+
+        function CalcularParcelas(){
+            const valorBem     = Number(document.querySelector("#valor_bem").value)
+            const numParcelas  = Number(document.querySelector("#num_parcelas").value)
+            const valorEntrada = Number(document.querySelector("#valor_entrada").value)
+
+            const valorFinanciado = valorBem - valorEntrada
+            const valorParcela = valorFinanciado / numParcelas
+
+            alert(
+                "Valor financiado: R$ " + valorFinanciado.toFixed(2) +
+                "\nValor de cada parcela: R$ " + valorParcela.toFixed(2)
+            )
+        }
+
+    </script>
+
+</body>
+</html>

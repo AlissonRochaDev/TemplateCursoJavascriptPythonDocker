@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Valores</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+    <main class="main-content">
+        <h2>2º Exemplo - Calcular Valores.</h2>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="primeiro_valor">Digite o 1º Número:</label>
+                    <input type="text" id="primeiro_valor" placeholder="Digite aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="segundo_valor">Digite o 2º Número:</label>
+                    <input type="text" id="segundo_valor" placeholder="Digite aqui...">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn success" id="btn-somar">SOMA</button>
+        <button type="submit" class="btn success" id="btn-subtrair">SUBTRAIR</button>
+        <button type="submit" class="btn success" id="btn-multiplicar">MULTIPLICAR</button>
+        <button type="submit" class="btn success" id="btn-dividir">DIVIDIR</button>
+
+        <br>
+
+        <!-- Receber o resultado do processamento do código Javascript! -->
+        <strong id="return_msg"></strong>
+    </main>
+
+    <script>
+
+        // Declarando todas as variáveis referente aos Botões!
+        const btn_somar = document.getElementById("btn-somar")
+        const btn_subtrair = document.getElementById("btn-subtrair")
+        const btn_multiplicar = document.getElementById("btn-multiplicar")
+        const btn_dividir = document.getElementById("btn-dividir")
+
+        // Declarando todas as Variáveis para receber os valores digitados!
+        let numero_1
+        let numero_2
+        let resultado
+
+        // Mensagem que sera apresentada no HTML após a execução da operação matematica!
+        const msg_resultado = document.getElementById("return_msg")
+
+        // 1ª Execução Matematica: SOMA!
+        btn_somar.addEventListener("click", () => {
+            numero_1 = document.getElementById("primeiro_valor").value
+            numero_2 = document.getElementById("segundo_valor").value
+
+            resultado = Number(numero_1) + Number(numero_2)
+
+            msg_resultado.innerHTML = `Soma: ${resultado}`
+        })
+
+        // 2ª Execução Matematica: SUBTRAÇÃO!
+        btn_subtrair.addEventListener("click", () => {
+            numero_1 = document.getElementById("primeiro_valor").value
+            numero_2 = document.getElementById("segundo_valor").value
+
+            resultado = Number(numero_1) - Number(numero_2)
+
+            msg_resultado.innerHTML = `Subtrair: ${resultado}`
+        })
+
+        // 3ª Execução Matematica: MULTIPLICAÇÃO!
+        btn_multiplicar.addEventListener("click", () => {
+            numero_1 = document.getElementById("primeiro_valor").value
+            numero_2 = document.getElementById("segundo_valor").value
+
+            resultado = Number(numero_1) * Number(numero_2)
+
+            msg_resultado.innerHTML = `Multiplicar: ${resultado}`
+        })
+
+        // 4ª Execução Matematica: DIVISÃO!
+        btn_dividir.addEventListener("click", () => {
+            numero_1 = document.getElementById("primeiro_valor").value
+            numero_2 = document.getElementById("segundo_valor").value
+
+            resultado = Number(numero_1) / Number(numero_2)
+
+            msg_resultado.innerHTML = `Dividir: ${resultado}`
+        })
+
+    </script>
+
+</body>
+</html>

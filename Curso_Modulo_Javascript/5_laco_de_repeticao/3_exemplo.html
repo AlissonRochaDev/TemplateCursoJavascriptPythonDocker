@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Exemplo - Laço de Repetição WHILE (Jogo do Número)</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>3º Exemplo - WHILE - Jogo do Número Secreto</h2>
+
+        <p>Tente adivinhar o número secreto entre 1 e 10.</p>
+
+        <p id="msg_while"></p>
+
+        <button type="button" id="btn_repetir" class="btn success">Iniciar o Game</button>
+    </main>
+
+    <script>
+        // Valor para acertar o Game!
+        const numero_secreto_ok = 7
+
+        const btnRepetir = document.getElementById("btn_repetir")
+        const msg_while = document.getElementById("msg_while")
+
+        btnRepetir.addEventListener("click", () => {
+            let qtds_tentativas = 0
+            let palpites = 0
+
+            while(palpites != numero_secreto_ok){
+                qtds_tentativas++
+
+                palpites = parseInt(prompt("Digite um NÚMERO: "))
+
+                if(palpites === numero_secreto_ok){
+                    msg_while.innerHTML = `🎉ACERTOU!!! Tentativas: ${qtds_tentativas} 🎉`
+                }else{
+                    alert("ERROU: Tente Novamente!!!")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+========================================================
+Comando para criar o Container no Docker com o Projeto: 
+docker compose up --build
+
+========================================================
+Retirar o Container:
+docker compose down
+
+========================================================
+SOBRE API REST:
+
+Solicitações:
+/cadastrarPedido
+/alterarPedido
+/excluirPedido
+/verPedido
+
+Verbos:
+- get (pegar)
+- post (criar)
+- put (atualizar)
+- delete (excluir)
+
+========================================================
+Extensão no VSCode para testar a API Rest - THUNDER CLIENT
+
+Testes para chamar um end-point.
+Ele realiza o trabalho que o Postman também realiza.
+
+========================================================
+API rest com JSON de Dados:
+
+Todo Objeto de Dados JSON é estruturado por CHAVE - VALOR.
+
+========================================================
+Boas Práticas em Python:
+
+Variáveis:
+Variável Simples - Sempre sua sintaxe em saneke case (exemplo: nome_exemplo)
+Variável Constante - Sempre sua sintaxe em Maiúsculo (exemplo: NUMERO = 1)
+
+Operadores:
+|| = OU - NO Python: or
+&& = E - NO Python: and
+
+Condições Lógicas:
+Em outras linguagens um if sempre acompanha chaves {}.
+
+No Python apenas indentação, exemplo:
+---------------------
+if condicao_logica:
+    conteudo
+---------------------
+
+Em caso de else if{}:
+---------------------
+if condicao_logica:
+    conteudo
+elif condicao_logica:
+    conteudo
+---------------------
+
+Tratamento de ERROS em Python (try - except).
+Para que os números sejam interceptados como números mesmo convertidos em string, trate a declaração como float().
+
+========================================================
+Em Python não existe ARRAY, e sim LISTAS, seguindo a mesma estrutura de um ARRAY, porem são LISTAS.
+
+Tipos de LISTAS DE DADOS em Python: Tuplas / Dicionários.
+
+========================================================
+Consumindo APIs Externas:
+
+Nesse exercício vamos consumir API de Cotação: URL: https://docs.awesomeapi.com.br/api-de-moedas
+Exemplo de Estrutura JSON: https://economia.awesomeapi.com.br/json/last/USD-BRL
+
+Comando para forçar a reinstalação do Projeto no Container: docker compose up --build
+
+========================================================
+PAREI: 

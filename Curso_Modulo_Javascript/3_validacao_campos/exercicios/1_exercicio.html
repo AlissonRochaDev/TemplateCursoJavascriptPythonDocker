@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Exercício</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Validando Dados de Formulários.</h2>
+
+        <div class="form-group">
+            <label for="telefone_usuario">Digite seu Telefone:</label>
+            <input type="text" id="telefone_usuario" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="assunto_mensagem">Digite o Assunto:</label>
+            <input type="text" id="assunto_mensagem" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="texto_mensagem">Digite sua Mensagem:</label>
+            <textarea id="texto_mensagem" placeholder="Digite aqui..." rows="6"></textarea>
+        </div>
+
+        <button type="submit" class="btn success" id="btn_validar">Validar Campos</button>
+    </main>
+
+    <script>
+
+        const btnValidar = document.getElementById("btn_validar")
+
+        btnValidar.addEventListener("click", () => {
+            const dados_telefone = document.getElementById("telefone_usuario")
+            const dados_assunto = document.getElementById("assunto_mensagem")
+            const dados_mensagem = document.getElementById("texto_mensagem")
+
+            const telefone = dados_telefone.value.trim()
+            const assunto = dados_assunto.value.trim()
+            const mensagem = dados_mensagem.value.trim()
+
+            if(telefone === ""){
+                alert("Preencher o campo obrigatório TELEFONE!")
+                dados_telefone.value = ""
+                dados_telefone.focus()
+            }else if(assunto === ""){
+                alert("Preencher o campo obrigatório ASSUNTO!")
+                dados_assunto.value = ""
+                dados_assunto.focus()
+            }else if(mensagem === ""){
+                alert("Preencher o campo obrigatório MENSAGEM!")
+                dados_mensagem.value = ""
+                dados_mensagem.focus()
+            }else if(isNaN(telefone)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                dados_telefone.value = ""
+                dados_telefone.focus()
+            }else{
+                alert("Validação realizada com SUCESSO!")
+                dados_telefone.value = ""
+                dados_assunto.value = ""
+                dados_mensagem.value = ""
+                dados_telefone.focus()
+            }
+        })
+
+    </script>
+
+</body>
+</html>

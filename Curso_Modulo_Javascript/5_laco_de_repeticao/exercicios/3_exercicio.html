@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Exercício - Validação de Senha</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Validação de Senha.</h2>
+
+        <button type="button" id="btn_login" class="btn success">Iniciar Login</button>
+    </main>
+
+    <script>
+
+        const btnValidarLogin = document.getElementById("btn_login")
+
+        btnValidarLogin.addEventListener("click", () => {
+            const senha_correta = "senha123"
+
+            let senha_digitada = ""
+            let tentativas = 0
+
+            // Laço de Repetição!
+            while(senha_digitada != senha_correta && tentativas < 3){
+                senha_digitada = prompt("Digite a sua SENHA: ")
+
+                if(senha_digitada != senha_correta){
+                    alert("Senha INCORRETA!!!")
+                }
+
+                tentativas++
+            }
+
+            if(senha_digitada == senha_correta){
+                alert("Login realizado com SUCESSO!")
+            }else{
+                alert("Número máximo de tentativas ATINGIDO!!!!")
+            }
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Exemplo - Executando ASYNC/AWAIT</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>1º Exemplo: Executando ASYNC/AWAIT!</h2>
+
+        <button type="submit" id="btn_iniciar" onclick="fazerPedido()" class="btn success">Iniciar Processo</button>
+
+        <p id="msg_ixibir"></p>
+    </main>
+
+    <script>
+
+        const msg = document.getElementById("msg_ixibir")
+
+        async function processarPedido() {
+            msg.innerHTML += "Iniciando os Preparos!<br>"
+
+            // Simula o processamento demorado!
+            setTimeout(() => {
+                msg.innerHTML += "Comida finalizada, pode entregar!<br>"
+            }, 15000)
+
+            // for(let i = 0; i < 10000; i++){
+            // }
+            // msg.innerHTML += "Comida finalizada, pode entregar!<br>"
+        }
+
+        async function iniciarPedido() {
+            msg.innerHTML += "Enviando o pedido para a COZINHA.<br>"
+            await processarPedido()
+            msg.innerHTML += "Pedido pronto. Chamar o CLIENTE.<br>"
+        }
+
+        function fazerPedido() {
+            msg.innerHTML = "Pedido em produção.<br>"
+            iniciarPedido()
+            // msg.innerHTML = msg.innerHTML + "Cliente pode RETIRAR.<br>"
+            msg.innerHTML += "Cliente pode RETIRAR.<br>"
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Classificação de Idade em Faixa Etária.</h2>
+
+        <div class="form-group">
+            <label for="idade">Digite sua Idade:</label>
+            <input type="text" id="idade" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btn_classificar">Classificar</button>
+
+        <p id="resultado_idade"></p>
+    </main>
+
+    <script>
+
+        const btnClassificar = document.getElementById("btn_classificar")
+        const resultadoIdade = document.getElementById("resultado_idade")
+
+        btnClassificar.addEventListener("click", () => {
+            const campo_idade = document.getElementById("idade")
+            const idade = campo_idade.value.trim()
+
+            if(idade === ""){
+                alert("Preencher o campo obrigatório IDADE!")
+                campo_idade.value = ""
+                campo_idade.focus()
+            }else if(isNaN(idade)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                campo_idade.value = ""
+                campo_idade.focus()         
+            }else{
+                if(Number(idade) < 12){
+                    resultadoIdade.innerHTML = "Criança"
+                    resultadoIdade.style.color = "blue"
+                }else if(Number(idade) >= 12 && Number(idade) < 18){
+                    resultadoIdade.innerHTML = "Adolescente"
+                    resultadoIdade.style.color = "orange"
+                }else if(Number(idade) >= 18 && Number(idade) < 60){
+                    resultadoIdade.innerHTML = "Adulto"
+                    resultadoIdade.style.color = "green"
+                }else{
+                    resultadoIdade.innerHTML = "Idoso"
+                    resultadoIdade.style.color = "purple"
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>

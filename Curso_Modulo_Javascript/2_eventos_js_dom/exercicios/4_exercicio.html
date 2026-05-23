@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="form-group">
+            <label for="nome_empresa">Digite o Nome da Empresa:</label>
+            <input type="text" id="nome_empresa" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="cnpj">Digite o CNPJ:</label>
+            <input type="text" id="cnpj" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="proprietario">Digite o Nome do Proprietário:</label>
+            <input type="text" id="proprietario" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="telefone">Digite o Telefone:</label>
+            <input type="text" id="telefone" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="funcionarios">Qtd. total de Funcionários:</label>
+            <input type="text" id="funcionarios" placeholder="Digite aqui...">
+        </div>          
+        
+        <button type="submit" class="btn success" id="btn_mostrar" onclick="DadosDaEmpresa()">Mostrar</button>
+    </main>
+
+    <script>
+
+        const btnMostrar = document.getElementById("#btn_mostrar")
+
+        btnMostrar.addEventListener("click", DadosDaEmpresa)
+
+        function DadosDaEmpresa(){
+            const nomeEmpresa = document.querySelector("#nome_empresa").value
+            const nomeProprietario = document.querySelector("#proprietario").value
+            const cnpj = document.querySelector("#cnpj").value
+            const telefone = document.querySelector("#telefone").value
+            const funcionarios = document.querySelector("#funcionarios").value
+
+            alert(
+                "Nome da Empresa: " + nomeEmpresa + 
+                ".\nNome do Proprietário: " + nomeProprietario + 
+                ".\nCNPJ: " + cnpj + 
+                ".\nTelefone: " + telefone + 
+                ".\nQtd. total de Funcionários: " + funcionarios
+            )
+        }
+
+    </script>
+</body>
+</html>

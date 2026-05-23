@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - Média de Idades</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Trabalhando com Calculos.</h2>
+
+        <div class="form-group">
+            <label for="idade1">Idade 1:</label>
+            <input type="text" id="idade1" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade2">Idade 2:</label>
+            <input type="text" id="idade2" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade3">Idade 3:</label>
+            <input type="text" id="idade3" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade4">Idade 4:</label>
+            <input type="text" id="idade4" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade5">Idade 5:</label>
+            <input type="text" id="idade5" placeholder="Digite aqui...">
+        </div>
+
+        <button type="button" class="btn success" id="btn_calcular">
+            Calcular Média de Idades
+        </button>
+    </main>
+
+    <script>
+
+        const btnCalcular = document.getElementById("btn_calcular")
+
+        btnCalcular.addEventListener("click", CalcularMedia)
+
+        function CalcularMedia(){
+            const idade1 = Number(document.querySelector("#idade1").value)
+            const idade2 = Number(document.querySelector("#idade2").value)
+            const idade3 = Number(document.querySelector("#idade3").value)
+            const idade4 = Number(document.querySelector("#idade4").value)
+            const idade5 = Number(document.querySelector("#idade5").value)
+
+            const soma = idade1 + idade2 + idade3 + idade4 + idade5
+            const media = soma / 5
+
+            alert("Média das idades: " + media.toFixed(1))
+        }
+
+    </script>
+
+</body>
+</html>

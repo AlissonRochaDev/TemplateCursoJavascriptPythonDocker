@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>2º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Filtro de Alturas.</h2>
+
+        <div class="form-group">
+            <label for="altura_usuario">Digite sua Altura em Centímetros:</label>
+            <input type="text" id="altura_usuario" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar Altura</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir Alturas Maiores que 1,70m</button>
+
+        <p id="msg_alturas"></p>
+    </main>
+
+    <script>
+
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir = document.getElementById("btnExibir")
+        const altura_input = document.getElementById("altura_usuario")
+        const msg = document.getElementById("msg_alturas")
+
+        // Declarando as Variáveis Globais.
+        let alturas = []
+
+        btn_adicionar.addEventListener("click", () => {
+            alturas.push(altura_input.value)
+            altura_input.value = ""
+            altura_input.focus()
+        })
+
+        // Mostrando os dados dentro do elemento msg no HTML!
+        btn_exibir.addEventListener("click", () => {
+            let alturas_exibir = ""
+
+            for (let i = 0; i < alturas.length; i++) {
+                if (alturas[i] > 170) {
+                    alturas_exibir = `${alturas_exibir}<br>${alturas[i]} cm`
+                }
+            }
+
+            msg.innerHTML = alturas_exibir
+        })
+
+    </script>
+</body>
+</html>

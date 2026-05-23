@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Exemplo - Laço de Repetição FOR</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>1º Exemplo - Laço de Repetição FOR!</h2>
+
+        <div class="form-group">
+            <label for="frase">Digite uma frase:</label>
+            <input type="text" id="frase" placeholder="Digite sua frase aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="repeticao">Quantidade de repetições:</label>
+            <input type="text" id="repeticao" placeholder="Digite qtd de repetições...">
+        </div>
+
+        <p id="msg_for"></p>
+
+        <button type="button" id="btn_repetir" class="btn success">Executar Repetição</button>
+    </main>
+
+    <script>    
+
+        const btnRepetir = document.getElementById("btn_repetir")
+        const msg_for = document.getElementById("msg_for")
+
+        btnRepetir.addEventListener("click", () => {
+            const frase = document.getElementById("frase").value
+            const repeticao = document.getElementById("repeticao").value
+
+            if(isNaN(repeticao) || repeticao <= 0){
+                msg_for.innerHTML = "Digite apenas caracteres NÚMERICOS MAIOR QUE 0!"
+                return
+            }else{
+                // Variável Global!
+                let resultado_final = ""
+
+                for(i = 1; i <= repeticao; i++){
+                    resultado_final += `${frase} - Pos: ${i}<br>`
+                }
+
+                msg_for.innerHTML = resultado_final
+            }
+        })
+
+    </script>
+
+</body>
+</html>

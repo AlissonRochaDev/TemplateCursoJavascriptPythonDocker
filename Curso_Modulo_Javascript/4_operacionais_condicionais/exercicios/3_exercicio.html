@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Validação de Velocidade na Rodovia.</h2>
+
+        <div class="form-group">
+            <label for="velocidade">Velocidade do Veículo (km/h):</label>
+            <input type="text" id="velocidade" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btn_checar">Checar Velocidade</button>
+    </main>
+
+    <script>
+        const btnChecar = document.getElementById("btn_checar")
+
+        btnChecar.addEventListener("click", () => {
+            const campoVelocidade = document.getElementById("velocidade")
+
+            const velocidade = campoVelocidade.value.trim()
+
+            if (velocidade == "") {
+                alert("Preencher o campo VELOCIDADE")
+                campoVelocidade.value = ""
+                campoVelocidade.focus()
+            } else if (isNaN(velocidade)) {
+                alert("Preencher a VELOCIDADE com SOMENTE NÚMEROS")
+                campoVelocidade.value = ""
+                campoVelocidade.focus()
+            } else {
+                if (Number(velocidade) > 110) {
+                    alert("Acima do limite")
+                } else if (Number(velocidade) < 40) {
+                    alert("Abaixo do mínimo")
+                } else {
+                    alert("Velocidade dentro do intervalo permitido")
+                }
+
+                if (Number(velocidade) != 60) {
+                    alert("Diferente da velocidade de referência (60 km/h)")
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

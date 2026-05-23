@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>1º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Lista de Compras.</h2>
+
+        <div class="form-group">
+            <label for="item_compra">Digite o Nome do Item:</label>
+            <input type="text" id="item_compra" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir Lista</button>
+
+        <p id="msg_status"></p>
+        <ol id="lista_itens"></ol>
+    </main>
+
+    <script>
+
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir = document.getElementById("btnExibir")
+        const item_input = document.getElementById("item_compra")
+
+        const msg = document.getElementById("msg_status")
+        const lista = document.getElementById("lista_itens")
+
+        // Declarando as Variáveis Globais.
+        let listaDeCompras = []
+
+        btn_adicionar.addEventListener("click", () => {
+            listaDeCompras.push(item_input.value)
+            msg.innerHTML = "Item adicionado com SUCESSO!"
+            item_input.value = ""
+            item_input.focus()
+        })
+
+        // Esse script percorre o Array listaDeCompras, monta uma string com os itens formatados,
+        // e exibe tudo dentro do elemento lista no HTML!
+        btn_exibir.addEventListener("click", () => {
+            let itens_exibir = ""
+
+            for (let i = 0; i < listaDeCompras.length; i++) {
+                itens_exibir = `${itens_exibir}<li>${listaDeCompras[i]}</li>`
+            }
+
+            lista.innerHTML = itens_exibir
+        })
+
+    </script>
+</body>
+</html>

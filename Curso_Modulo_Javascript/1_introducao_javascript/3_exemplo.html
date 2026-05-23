@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Eventos e Functions em Javascript Nativo</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+    <main class="main-content">
+        <h2>3º Exemplo - Executando Eventos e Functions no Javascript Nativo.</h2>
+        <button type="submit" onclick="MostrarUmaMensagem()" class="btn success">Mostrar Mensagem</button>
+        <div class="form-group">
+            <label for="3_exemplo">Selecione uma das Opções:</label>
+            <select id="" onchange="MostrarItemSelecionado(this.value)">
+                <option value="">Selecione</option>
+                <option value="Item A">A</option>
+                <option value="Item B">B</option>
+            </select>
+        </div>
+    </main>
+    <script>
+        // Execução do Botão Mostrar!
+        function MostrarUmaMensagem(){
+            alert("Olá mundo! Você clicou no botão Mostrar!")
+        }
+
+        // Execução do Select do HTML!
+        function MostrarItemSelecionado(item_selecionado){
+            alert("Você selecionou/mudou de opção: " + item_selecionado)
+        }
+    </script>
+</body>
+</html> 

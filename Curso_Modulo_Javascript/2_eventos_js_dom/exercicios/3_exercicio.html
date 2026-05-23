@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Manipulando Dados.</h2>
+
+        <div class="form-group">
+            <label for="titulo_livro">Digite o Título do Livro:</label>
+            <input type="text" id="titulo_livro" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="ano">Digite o Ano de Lançamento:</label>
+            <input type="text" id="ano" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="editora">Digite a Edição do Livro:</label>
+            <input type="text" id="editora" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="autor">Digite o Nome do Autor:</label>
+            <input type="text" id="autor" placeholder="Digite aqui...">
+        </div>             
+        
+        <button type="submit" class="btn success" id="btn_mostrar" onclick="DadosDoLivro()">Mostrar</button>
+    </main>
+
+    <script>
+
+        const btnMostrar = document.getElementById("#btn_mostrar")
+
+        btnMostrar.addEventListener("click", DadosDoLivro)
+
+        function DadosDoLivro(){
+            const tituloLivro = document.querySelector("#titulo_livro").value
+            const anoLancamento = document.querySelector("#ano").value
+            const editora = document.querySelector("#editora").value
+            const autor = document.querySelector("#autor").value
+
+            alert(
+                "Nome do Livro: " + tituloLivro + 
+                ".\nAno de Lançamento: " + anoLancamento + 
+                ".\nEditora: " + editora + 
+                ".\nAutor: " + autor
+            )
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Lógicos</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 2 - Operadores Lógicos!</h2>
+
+        <div class="form-group">
+            <label for="numero_inicial">Número Inicial:</label>
+            <input type="text" id="numero_inicial" placeholder="Digite o número inicial aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="numero_meio">Número do Meio:</label>
+            <input type="text" id="numero_meio" placeholder="Digite o número do meio aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="numero_final">Número Final:</label>
+            <input type="text" id="numero_final" placeholder="Digite o número final aqui...">
+        </div>
+
+        <button type="submit" id="btn_verificar_intervalo" class="btn success">Verificar Intervalo</button>
+
+        <p id="msg"></p>
+    </main>
+
+    <script>
+
+        const btnVerificarIntervalo = document.getElementById("btn_verificar_intervalo")
+        const msgMostrar = document.getElementById("msg")
+
+        btnVerificarIntervalo.addEventListener("click", () => {
+            const inicial = document.getElementById("numero_inicial").value.trim()
+            const meio = document.getElementById("numero_meio").value.trim()
+            const final = document.getElementById("numero_final").value.trim()
+
+            if(inicial === "" || meio === "" || final === "") {
+                alert("Preencher TODOS OS CAMPOS OBRIGATÓRIOS!")
+            }else if (isNaN(inicial) || isNaN(meio) || isNaN(final)) {
+                alert("Prencher os campos SOMENTE COM NUMEROS!")
+            }else {
+                if(Number(meio) >= Number(inicial) && Number(meio) <= Number(final)) {
+                    msgMostrar.innerHTML = ` O numero ${meio} está entre o valor ${inicial} e ${final}`
+                }else{
+                    msgMostrar.innerHTML = ` O numero ${meio} NÃO está entre o valor ${inicial} e ${final}`
+                }
+            }
+        })
+        
+    </script>
+
+</body>
+</html>

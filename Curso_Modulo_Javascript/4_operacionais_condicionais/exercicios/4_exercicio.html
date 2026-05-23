@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Calcular IMC com Classificação por Cor.</h2>
+
+        <div class="form-group">
+            <label for="peso">Peso (kg):</label>
+            <input type="text" id="peso" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="altura">Altura (m):</label>
+            <input type="text" id="altura" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btn_calcular_imc">Calcular IMC</button>
+
+        <p id="resultadoImc"></p>
+    </main>
+
+    <script>
+
+        const btnCalcularIMC = document.getElementById("btn_calcular_imc")
+        const resultadoImc = document.getElementById("resultadoImc")
+
+        btnCalcularIMC.addEventListener("click", () => {
+            const campoPeso = document.getElementById("peso")
+            const campoAltura = document.getElementById("altura")
+
+            const peso = campoPeso.value.trim()
+            const altura = campoAltura.value.trim()
+
+            if (peso == "") {
+                alert("Preencher o campo PESO")
+                campoPeso.value = ""
+                campoPeso.focus()
+            } else if (altura == "") {
+                alert("Preencher o campo ALTURA")
+                campoAltura.value = ""
+                campoAltura.focus()
+            } else if (isNaN(peso)) {
+                alert("Preencher o PESO com SOMENTE NÚMEROS")
+                campoPeso.value = ""
+                campoPeso.focus()
+            } else if (isNaN(altura)) {
+                alert("Preencher a ALTURA com SOMENTE NÚMEROS")
+                campoAltura.value = ""
+                campoAltura.focus()
+            } else {
+                const imc = Number(peso) / (Number(altura) * Number(altura))
+                const imcFormatado = imc.toFixed(2)
+
+                if (imc < 18.5) {
+                    resultadoImc.innerHTML = `IMC: ${imcFormatado} - Abaixo do peso`
+                    resultadoImc.style.color = "orange"
+                } else if (imc >= 18.5 && imc < 25) {
+                    resultadoImc.innerHTML = `IMC: ${imcFormatado} - Peso normal`
+                    resultadoImc.style.color = "green"
+                } else if (imc >= 25 && imc < 30) {
+                    resultadoImc.innerHTML = `IMC: ${imcFormatado} - Sobrepeso`
+                    resultadoImc.style.color = "gray"
+                } else {
+                    resultadoImc.innerHTML = `IMC: ${imcFormatado} - Obesidade`
+                    resultadoImc.style.color = "red"
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

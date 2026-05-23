@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Comparar Duas Idades.</h2>
+
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="nome_1">Nome da Primeira Pessoa:</label>
+                    <input type="text" id="nome_1" placeholder="Digite aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade_1">Idade da Primeira Pessoa:</label>
+                    <input type="text" id="idade_1" placeholder="Digite aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="nome_2">Nome da Segunda Pessoa:</label>
+                    <input type="text" id="nome_2" placeholder="Digite aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade_2">Idade da Segunda Pessoa:</label>
+                    <input type="text" id="idade_2" placeholder="Digite aqui...">
+                </div>
+            </div>
+        </div>
+        <p id="msg_resultado"></p>
+
+        <button type="submit" class="btn success" id="btn_comparar">Comparar Idades</button>
+    </main>
+
+    <script>
+
+        const btnComparar = document.getElementById("btn_comparar")
+
+        // Variável Global
+        const msgResultado = document.getElementById("msg_resultado")
+
+        btnComparar.addEventListener("click", () => {
+            const campoNome1 = document.getElementById("nome_1")
+            const campoIdade1 = document.getElementById("idade_1")
+            const campoNome2 = document.getElementById("nome_2")
+            const campoIdade2 = document.getElementById("idade_2")
+
+            const nome1 = campoNome1.value.trim()
+            const idade1 = campoIdade1.value.trim()
+            const nome2 = campoNome2.value.trim()
+            const idade2 = campoIdade2.value.trim()
+
+            if (nome1 === "") {
+                alert("Preencher o campo NOME da PRIMEIRA pessoa")
+                campoNome1.value = ""
+                campoNome1.focus()
+            } else if (idade1 === "") {
+                alert("Preencher o campo IDADE da PRIMEIRA pessoa")
+                campoIdade1.value = ""
+                campoIdade1.focus()
+            } else if (isNaN(idade1)) {
+                alert("Preencher a IDADE da PRIMEIRA pessoa com SOMENTE NÚMEROS")
+                campoIdade1.value = ""
+                campoIdade1.focus()
+            } else if (nome2 === "") {
+                alert("Preencher o campo NOME da SEGUNDA pessoa")
+                campoNome2.value = ""
+                campoNome2.focus()
+            } else if (idade2 === "") {
+                alert("Preencher o campo IDADE da SEGUNDA pessoa")
+                campoIdade2.value = ""
+                campoIdade2.focus()
+            } else if (isNaN(idade2)) {
+                alert("Preencher a IDADE da SEGUNDA pessoa com SOMENTE NÚMEROS")
+                campoIdade2.value = ""
+                campoIdade2.focus()
+            } else {
+                if (Number(idade1) > Number(idade2)) {
+                    msgResultado.innerHTML = `${nome1} é a pessoa mais velha, com ${idade1} anos de idade.`
+                } else if (Number(idade2) > Number(idade1)) {
+                    msgResultado.innerHTML = `${nome2} é a pessoa mais velha, com ${idade2} anos de idade.`
+                } else {
+                    msgResultado.innerHTML = "Ambas tem a mesma idade."
+                }
+            }
+        })      
+
+    </script>
+
+</body>
+</html>

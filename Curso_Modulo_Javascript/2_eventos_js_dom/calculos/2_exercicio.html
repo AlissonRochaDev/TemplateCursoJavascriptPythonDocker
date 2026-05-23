@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Total de Produtos</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Trabalhando com Calculos.</h2>
+
+        <div class="form-group">
+            <label for="preco1">Preço do Produto 1:</label>
+            <input type="text" id="preco1" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="qtd1">Quantidade do Produto 1:</label>
+            <input type="text" id="qtd1" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="preco2">Preço do Produto 2:</label>
+            <input type="text" id="preco2" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="qtd2">Quantidade do Produto 2:</label>
+            <input type="text" id="qtd2" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="preco3">Preço do Produto 3:</label>
+            <input type="text" id="preco3" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="qtd3">Quantidade do Produto 3:</label>
+            <input type="text" id="qtd3" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="preco4">Preço do Produto 4:</label>
+            <input type="text" id="preco4" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="qtd4">Quantidade do Produto 4:</label>
+            <input type="text" id="qtd4" placeholder="Digite aqui...">
+        </div>
+
+        <button type="button" class="btn success" id="btn_calcular">
+            Calcular Total
+        </button>
+    </main>
+
+    <script>
+
+        const btnCalcular = document.getElementById("btn_calcular")
+
+        btnCalcular.addEventListener("click", CalcularTotal)
+
+        function CalcularTotal(){
+            const preco1 = Number(document.querySelector("#preco1").value)
+            const qtd1   = Number(document.querySelector("#qtd1").value)
+
+            const preco2 = Number(document.querySelector("#preco2").value)
+            const qtd2   = Number(document.querySelector("#qtd2").value)
+
+            const preco3 = Number(document.querySelector("#preco3").value)
+            const qtd3   = Number(document.querySelector("#qtd3").value)
+
+            const preco4 = Number(document.querySelector("#preco4").value)
+            const qtd4   = Number(document.querySelector("#qtd4").value)
+
+            const total =
+                (preco1 * qtd1) +
+                (preco2 * qtd2) +
+                (preco3 * qtd3) +
+                (preco4 * qtd4)
+
+            alert("Valor total da compra: R$ " + total.toFixed(2))
+        }
+
+    </script>
+
+</body>
+</html>

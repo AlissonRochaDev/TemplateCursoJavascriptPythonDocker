@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Exercício - Contagem Progressiva</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Contagem Progressiva.</h2>
+
+        <div class="form-group">
+            <label for="numero">Digite um número:</label>
+            <input type="text" id="numero" placeholder="Digite um número...">
+        </div>
+
+        <p id="msg_contagem"></p>
+
+        <button type="button" id="btn_contar" class="btn success">Iniciar Contagem</button>
+    </main>
+
+    <script>
+
+        const btnContar = document.getElementById("btn_contar")
+        const msg_contagem = document.getElementById("msg_contagem")
+
+        btnContar.addEventListener("click", () => {
+            const numero = document.getElementById("numero").value
+
+            if(isNaN(numero) || Number(numero) === ""){
+                msg_contagem.innerHTML = "Digite apenas caracteres NUMÉRICOS!"
+                return
+            }else{
+
+                let resultado_final = ""
+
+                for(let i = 0; i <= numero; i++){
+                    resultado_final += `${i}<br>`
+                }
+
+                msg_contagem.innerHTML = resultado_final
+
+            }
+        })
+
+    </script>
+
+</body>
+</html>

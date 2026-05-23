@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Exemplo - FOREACH</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>2º Exemplo - FOREACH</h2>
+
+        <div class="form-group">
+            <label for="lista">Digite palavras separadas por vírgula:</label>
+            <input type="text" id="lista" placeholder="Ex: maçã, banana, uva, laranja...">
+        </div>
+
+        <p id="msg_foreach"></p>
+
+        <button type="button" id="btn_repetir" class="btn success">Mostrar Lista</button>
+    </main>
+
+    <script>
+
+        // Todo Laço de Repetição foreach precisa ser executado junto com uma Variável Array ou Objeto de Dados.
+        // Todoa Variável Array é organziada por casas numéricas, iniciando do valor 0.
+        // Variável Array salva em sua estrutura vários dados de uma única vez!
+
+        const btnRepetir = document.getElementById("btn_repetir")
+        const msg_foreach = document.getElementById("msg_foreach")
+
+        btnRepetir.addEventListener("click", () => {
+            const valor_de_entrada = document.getElementById("lista").value
+
+            if(valor_de_entrada.trim() === ""){
+                msg_foreach.innerHTML = "Preencher o campo obrigatório!"
+                return
+            }else{
+
+                // Declarando uma Variável Array para execução do foreach.
+                const arrayDados = valor_de_entrada.split(",")
+
+                let resultado_final = ""
+
+                arrayDados.forEach((item, index) => {
+                    resultado_final += `Item ${index + 1}: ${item.trim()} <br>`
+                })
+
+                msg_foreach.innerHTML = resultado_final
+            }
+        })
+
+    </script>
+
+</body>
+</html>

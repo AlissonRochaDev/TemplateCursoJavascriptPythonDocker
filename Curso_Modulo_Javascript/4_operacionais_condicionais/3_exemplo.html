@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionais com os Operadores</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 3 - Condicionais com os Operadores!</h2>
+
+        <div class="form-group">
+            <label for="nota1">Nota 1</label>
+            <input type="text" id="nota1" placeholder="Digite a nota 1...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota2">Nota 2</label>
+            <input type="text" id="nota2" placeholder="Digite a nota 2...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota3">Nota 3</label>
+            <input type="text" id="nota3" placeholder="Digite a nota 3...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota4">Nota 4</label>
+            <input type="text" id="nota4" placeholder="Digite a nota 4...">
+        </div>
+
+        <button type="submit" id="btn_calcular" class="btn success">Calcular média</button>
+
+        <p id="msg"></p>
+    </main>
+
+    <script>
+
+        const btnCalcular = document.getElementById("btn_calcular")
+        const msgMostrar = document.getElementById("msg")
+
+        btnCalcular.addEventListener("click", () => {
+            let nota1 = document.getElementById("nota1").value.trim()
+            let nota2 = document.getElementById("nota2").value.trim()
+            let nota3 = document.getElementById("nota3").value.trim()
+            let nota4 = document.getElementById("nota4").value.trim()
+
+            if(nota1 === "" || nota2 === "" || nota3 === "" || nota4 === "") {
+                alert("Preencher TODOS OS CAMPOS")
+            }else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
+                alert("Prencher os campos SOMENTE COM NUMEROS")
+            }else {
+
+                nota1 = Number(nota1)
+                nota2 = Number(nota2)
+                nota3 = Number(nota3)
+                nota4 = Number(nota4)
+
+                if (nota1 < 0 || nota1 > 100) {
+                    alert("A NOTA 1 é inválida. Digite de 0 a 100!")
+                }else if (nota2 < 0 || nota2 > 100) {
+                    alert(" A NOTA 2 é inválida. Digite de 0 a 100!")
+                }else if (nota3 < 0 || nota3 > 100) {
+                    alert(" A NOTA 3 é inválida. Digite de 0 a 100!")
+                }else if (nota4 < 0 || nota4 > 100) {
+                    alert(" A NOTA 4 é inválida. Digite de 0 a 100!")
+                }else {
+                    const media = (nota1 + nota2 + nota3 + nota4) / 4
+
+                    if (media >= 0 && media < 40) {
+                        msgMostrar.innerHTML = `${media} - REPROVADO!`
+                        msgMostrar.style.color = "red"
+                    }else if (media >= 40 && media < 60) {
+                        msgMostrar.innerHTML = `${media} - EXAME!`
+                        msgMostrar.style.color = "orange"
+                    } else if (media >= 60) {
+                        msgMostrar.innerHTML = `${media} - APROVADO!`
+                        msgMostrar.style.color = "blue"
+                    }
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>

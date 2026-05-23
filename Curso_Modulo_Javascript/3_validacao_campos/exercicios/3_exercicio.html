@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Exercício</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Validando Dados de Formulários.</h2>
+
+        <div class="form-group">
+            <label for="nome_hospede">Digite o Nome dos Hóspedes:</label>
+            <input type="text" id="nome_hospede" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="email_hospede">Digite o E-mail:</label>
+            <input type="text" id="email_hospede" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="telefone_hospede">Digite o Telefone:</label>
+            <input type="text" id="telefone_hospede" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="data_entrada">Selecione a Data de Entrada:</label>
+            <input type="date" id="data_entrada">
+        </div>
+        <div class="form-group">
+            <label for="data_saida">Selecione a Data de Saída:</label>
+            <input type="date" id="data_saida">
+        </div>
+        <div class="form-group">
+            <label for="qtds_hospedes">Informe a Quantidade de Hóspedes:</label>
+            <input type="text" id="qtds_hospedes" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="tipo_quarto">Selecione o Tipo do Quarto:</label>
+            <select id="tipo_quarto">
+                <option value="">Clique para Selecionar</option>
+                <option value="Pequeno">Pequeno</option>
+                <option value="Medio">Médio</option>
+                <option value="Grande">Grande</option>
+            </select>
+        </div>     
+        <button type="submit" class="btn success" id="btn_enviar">Enviar Dados</button>
+        <!-- Sera carregado um Conteúdo Javascript no HTML (Injeção JS) -->
+        <div id="impressao_da_reserva"></div>
+    </main>
+
+    <script>
+
+        const btnEnviar = document.getElementById("btn_enviar")
+
+        const msg_reserva = document.getElementById("impressao_da_reserva")
+
+        btnEnviar.addEventListener("click", () => {
+            const campo_nome = document.getElementById("nome_hospede")
+            const campo_email = document.getElementById("email_hospede")
+            const campo_telefone = document.getElementById("telefone_hospede")
+            const campo_data_entrada = document.getElementById("data_entrada")
+            const campo_data_saida = document.getElementById("data_saida")
+            const campo_qtds_hospedes = document.getElementById("qtds_hospedes")
+            const campo_tipo_quarto = document.getElementById("tipo_quarto")
+
+            const nome_hospede = campo_nome.value.trim()
+            const email_hospede = campo_email.value.trim()
+            const telefone_hospede = campo_telefone.value.trim()
+            const data_entrada = campo_data_entrada.value
+            const data_saida = campo_data_saida.value
+            const qtds_hospedes = campo_qtds_hospedes.value.trim()
+            const tipo_quarto = campo_tipo_quarto.value
+
+            if(nome_hospede === ""){
+                alert("Preencher o campo obrigatório NOME DOS HÓSPEDES!")
+                campo_nome.value = ""
+                campo_nome.focus()
+            }else if(!isNaN(nome_hospede)){
+                alert("Digite apenas caracteres de TEXTO!")
+                campo_nome.value = ""
+                campo_nome.focus()
+            }else if(email_hospede == ""){
+                alert("Preencher o campo obrigatório E-MAIL DO HÓSPEDE!")
+                campo_email.value = ""
+                campo_email.focus()
+            }else if(telefone_hospede === ""){
+                alert("Preencher o campo obrigatório TELEFONE!")
+                campo_telefone.value = ""
+                campo_telefone.focus()                
+            }else if(isNaN(telefone_hospede)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                campo_telefone.value = ""
+                campo_telefone.focus()                
+            }else if(campo_data_entrada == ""){
+                alert("Selecione uma DATA DE ENTRADA!")
+                campo_data_entrada.value = ""
+                campo_data_entrada.focus()            
+            }else if(campo_data_saida == ""){
+                alert("Selecione uma DATA DE SAÍDA!")
+                campo_data_saida.value = ""
+                campo_data_saida.focus()            
+            }else if(Date(data_saida) < Date(data_entrada)){
+                alert("Selecione uma DATA DE ENTRADA!")
+                campo_data_entrada.value = ""
+                campo_data_entrada.focus()    
+            }else if(qtds_hospedes === ""){
+                alert("Preencher o campo obrigatório QUANTIDADE DE HÓSPEDES!")
+                campo_qtds_hospedes.value = ""
+                campo_qtds_hospedes.focus()                  
+            }else if(isNaN(qtds_hospedes)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                campo_qtds_hospedes.value = ""
+                campo_qtds_hospedes.focus()                
+            }else if(tipo_quarto == ""){
+                alert("Selecione o TIPO DO QUARTO!")
+                campo_tipo_quarto.value = ""
+                campo_tipo_quarto.focus()            
+            }else{
+                alert("Reserva realizada com SUCESSO!")
+
+                msg_reserva.innerHTML = 
+                    "<strong>Resumo da Reserva realizada:</strong><br><br>Nome dos Hóspedes: " + nome_hospede + 
+                    "<br>E-mail: " + email_hospede + 
+                    "<br>Telefone: " + telefone_hospede + 
+                    "<br>Data de Entrada: " + data_entrada + 
+                    "<br>Data de Saída: " + data_saida + 
+                    "<br>Quantidade de Hóspedes: " + qtds_hospedes + 
+                    "<br>Tipo do Quarto: " + tipo_quarto
+            }
+        })
+
+    </script>
+
+</body>
+</html>

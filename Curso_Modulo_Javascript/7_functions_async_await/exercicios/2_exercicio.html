@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>2º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercício 2: Verificador de CEP!</h2>
+
+        <div class="form-group">
+            <label for="cep">Digite o CEP:</label>
+            <input type="text" id="cep" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" id="btn_verificar" class="btn success">Verificar CEP</button>
+
+        <p id="status"></p>
+    </main>
+
+    <script>
+
+        const btn_verificar = document.getElementById("btn_verificar")
+        const status = document.getElementById("status")
+        const cep = document.getElementById("cep")
+
+        async function concluirCep() {
+            // Simula o processamento demorado!
+            setTimeout(() => {
+                status.innerHTML += "Consulta concluída!<br>"
+            }, 1500)
+        }
+
+        async function processarCep() {
+            status.innerHTML += "Consultando CEP...<br>"
+            await concluirCep()
+        }
+
+        async function iniciarVerificacao() {
+            status.innerHTML += "Enviando requisição...<br>"
+            await processarCep()
+            status.innerHTML += "Aguardando resposta...<br>"
+        }
+
+        function fazerAcao() {
+            const valorCep = cep.value
+            status.innerHTML = ""
+            iniciarVerificacao()
+
+            // Executa sem esperar finalizar o processo!
+            status.innerHTML += "Usuário pode continuar usando a página...<br>"
+        }
+
+        // Evento do botão
+        btn_verificar.addEventListener("click", fazerAcao)
+
+    </script>
+</body>
+</html>

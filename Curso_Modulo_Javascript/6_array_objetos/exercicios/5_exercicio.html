@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>5º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Boletim Escolar.</h2>
+
+        <div class="form-group">
+            <label for="disciplina">Digite o Nome da Disciplina:</label>
+            <input type="text" id="disciplina" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota_1">Digite a 1º Nota:</label>
+            <input type="text" id="nota_1" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota_2">Digite a 2º Nota:</label>
+            <input type="text" id="nota_2" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota_3">Digite a 3º Nota:</label>
+            <input type="text" id="nota_3" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="nota_4">Digite a 4º Nota:</label>
+            <input type="text" id="nota_4" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir Boletim</button>
+
+        <p id="msg_boletim"></p>
+    </main>
+
+    <script>
+
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir = document.getElementById("btnExibir")
+        const disciplina_input = document.getElementById("disciplina")
+
+        const nota_1_input = document.getElementById("nota_1")
+        const nota_2_input = document.getElementById("nota_2")
+        const nota_3_input = document.getElementById("nota_3")
+        const nota_4_input = document.getElementById("nota_4")
+
+        const msg = document.getElementById("msg_boletim")
+
+        // Declarando as Variáveis Globais.
+        let boletimEscolar = []
+
+        btn_adicionar.addEventListener("click", () => {
+            let nota1 = Number(nota_1_input.value)
+            let nota2 = Number(nota_2_input.value)
+            let nota3 = Number(nota_3_input.value)
+            let nota4 = Number(nota_4_input.value)
+
+            let media = (nota1 + nota2 + nota3 + nota4) / 4
+            let situacao = ""
+
+            if (media >= 60) {
+                situacao = "Aprovado"
+            } else if (media >= 40 && media <= 59) {
+                situacao = "Exame"
+            } else {
+                situacao = "Reprovado"
+            }
+
+            let disciplina = {
+                nome_disciplina: disciplina_input.value,
+                nota_1: nota1,
+                nota_2: nota2,
+                nota_3: nota3,
+                nota_4: nota4,
+                media: media,
+                situacao: situacao
+            }
+
+            boletimEscolar.push(disciplina)
+
+            disciplina_input.value = ""
+
+            nota_1_input.value = ""
+            nota_2_input.value = ""
+            nota_3_input.value = ""
+            nota_4_input.value = ""
+
+            disciplina_input.focus()
+        })
+
+        btn_exibir.addEventListener("click", () => {
+            let boletim_exibir = ""
+
+            // Laço de Repetição foreach!
+            boletimEscolar.forEach(item => {
+
+                boletim_exibir = `${boletim_exibir}<br>
+                Disciplina: ${item.nome_disciplina},
+                Média: ${item.media.toFixed(2)},
+                Situação: ${item.situacao}`
+
+            })
+
+            msg.innerHTML = boletim_exibir
+        })
+
+    </script>
+</body>
+</html>

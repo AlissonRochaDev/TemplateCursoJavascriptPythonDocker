@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>2º Exemplo - Objetos</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>2º Exemplo - Objeto de Dados.</h2>
+
+        <div class="form-group">
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade_usuario">Digite sua Idade:</label>
+            <input type="text" id="idade_usuario" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="rua_usuario">Digite sua Rua:</label>
+            <input type="text" id="rua_usuario" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir</button>
+
+        <p id="msg_permissao"></p>
+    </main>
+
+    <script>
+
+        const btnExibir = document.getElementById("btnExibir")
+        const btnAdicionar = document.getElementById("btnAdicionar")
+
+        const nomeInput = document.getElementById("nome_completo")
+        const idadeInput = document.getElementById("idade_usuario")
+        const ruaInput = document.getElementById("rua_usuario")
+        const msg = document.getElementById("msg_permissao")
+
+        // Declarando a estrutura de dados em Objeto!
+        let pessoa = {}
+
+        btnAdicionar.addEventListener("click", () => {
+            pessoa = {
+                // chave = valor
+                nome: nomeInput.value,
+                idade: idadeInput.value,
+                rua: ruaInput.value
+            }
+
+            nomeInput.value = ""
+            idadeInput.value = ""
+            ruaInput.value = ""
+
+            // Revele os dados armazenados nesse Objeto!
+            console.log(pessoa)
+        })
+
+        btnExibir.addEventListener("click", () => {
+            msg.innerHTML = `Nome: ${pessoa.nome}, sua idade é: ${pessoa.idade}, sua rua é: ${pessoa.rua}`
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - Exemplo Flexbox</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="header-main">
+        <h1>Práticas de Formulários</h1>
+    </header>
+
+  <main class="main-content">
+        <div class="form-container">
+            <h2>Página de Exemplo de Formulário</h2>
+            <form action="#">
+                <div class="form-columns">
+                    <div class="form-column-item">
+                        <div class="form-group">
+                            <label for="exemplo1">Exemplo 1</label>
+                            <input type="text" id="exemplo1" placeholder="Conteúdo do Exemplo 1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exemplo2">Exemplo 2</label>
+                            <input type="email" id="exemplo2" placeholder="Conteúdo do Exemplo 2">
+                        </div>
+                    </div>
+                    
+                    <div class="form-column-item">
+                        <div class="form-group">
+                            <label for="exemplo3">Exemplo 3</label>
+                            <select id="exemplo3">
+                                <option value="">Selecione uma opção</option>
+                                <option value="opt1">Opção 1</option>
+                                <option value="opt2">Opção 2</option>
+                                <option value="opt3">Opção 3</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exemplo4">Exemplo 4</label>
+                            <textarea id="exemplo4" rows="5" placeholder="Conteúdo do Exemplo 4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Exemplo 5 (Checkboxes):</label>
+                    <div class="checkbox-radio-group">
+                        <label><input type="checkbox" name="exemplo5" value="opt1"> Opção A</label>
+                        <label><input type="checkbox" name="exemplo5" value="opt2"> Opção B</label>
+                        <label><input type="checkbox" name="exemplo5" value="opt3"> Opção C</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Exemplo 6 (Radio):</label>
+                    <div class="checkbox-radio-group">
+                        <label><input type="radio" name="exemplo6" value="opt1"> Opção X</label>
+                        <label><input type="radio" name="exemplo6" value="opt2"> Opção Y</label>
+                        <label><input type="radio" name="exemplo6" value="opt3"> Opção Z</label>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn success">Enviar</button>
+                    <button type="reset" class="btn warning">Limpar</button>
+                    <button type="button" class="btn danger">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

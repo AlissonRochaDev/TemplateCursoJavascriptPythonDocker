@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>3º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercício 3: Semáforo Assíncrono!</h2>
+
+        <button type="submit" id="btn_iniciar" class="btn success">Iniciar Semáforo</button>
+
+        <p id="visor"></p>
+    </main>
+
+    <script>
+
+        const btn_iniciar = document.getElementById("btn_iniciar")
+        const visor = document.getElementById("visor")
+
+        async function concluirSemaforo() {
+            // Simula a mudança de sinais!
+            setTimeout(() => {
+                visor.innerHTML += "Amarelo<br>"
+                setTimeout(() => {
+                    visor.innerHTML += "Verde<br>"
+                }, 1000)
+            }, 1000)
+        }
+
+        async function processarSemaforo() {
+            visor.innerHTML += "Vermelho<br>"
+            await concluirSemaforo()
+        }
+
+        async function iniciarSemaforo() {
+            visor.innerHTML += "Preparando sequência...<br>"
+            await processarSemaforo()
+            visor.innerHTML += "Aguardando mudança de sinais...<br>"
+        }
+
+        function fazerAcao() {
+            visor.innerHTML = ""
+            iniciarSemaforo()
+
+            // Executa sem esperar finalizar o processo!
+            visor.innerHTML += "Motorista pode observar outras coisas...<br>"
+        }
+
+        // Evento do botão
+        btn_iniciar.addEventListener("click", fazerAcao)
+
+    </script>
+</body>
+</html>

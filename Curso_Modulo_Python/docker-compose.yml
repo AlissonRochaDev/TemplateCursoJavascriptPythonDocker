@@ -1,0 +1,13 @@
+# services - Construção dos Conteiners no Docker!
+services:
+  web:
+    build: .
+    container_name: flask-dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - FLASK_APP=app.py
+    command: flask run --host=0.0.0.0 --port=5000 --reload

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Exercício</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Controle de Estoque de Produtos.</h2>
+
+        <div class="form-group">
+            <label for="produto">Selecione o Produto:</label>
+            <select id="produto">
+                <option value="">Selecione...</option>
+                <option value="teclado">Teclado</option>
+                <option value="mouse">Mouse</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="quantidade">Quantidade para Retirada:</label>
+            <input type="text" id="quantidade" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btn_retirar">Retirar do Estoque</button>
+    </main>
+
+    <script>
+
+        const qtdEstoqueTeclado = 10
+        const qtdEstoqueMouse = 15
+
+        let estoqueTeclado = qtdEstoqueTeclado
+        let estoqueMouse = qtdEstoqueMouse
+
+        const btnRetirar = document.getElementById("btn_retirar")
+
+        btnRetirar.addEventListener("click", () => {
+            const campoProduto = document.getElementById("produto")
+            const campoQuantidade = document.getElementById("quantidade")
+
+            const produto = campoProduto.value.trim()
+            const quantidade = campoQuantidade.value.trim()
+
+            if (produto == "") {
+                alert("Selecionar um PRODUTO")
+                campoProduto.focus()
+            } else if (quantidade == "") {
+                alert("Preencher o campo QUANTIDADE")
+                campoQuantidade.value = ""
+                campoQuantidade.focus()
+            } else if (isNaN(quantidade)) {
+                alert("Preencher a QUANTIDADE com SOMENTE NÚMEROS")
+                campoQuantidade.value = ""
+                campoQuantidade.focus()
+            } else {
+                if (produto == "teclado") {
+                    if (Number(quantidade) > estoqueTeclado) {
+                        alert("Não há estoque suficiente de TECLADO.")
+                    } else {
+                        estoqueTeclado = estoqueTeclado - Number(quantidade)
+                        alert(`Retirada realizada com sucesso. Estoque atual: ${estoqueTeclado}`)
+                    }
+                } else if (produto == "mouse") {
+                    if (Number(quantidade) > estoqueMouse) {
+                        alert("Não há estoque suficiente de MOUSE.")
+                    } else {
+                        estoqueMouse = estoqueMouse - Number(quantidade)
+                        alert(`Retirada realizada com sucesso. Estoque atual: ${estoqueMouse}`)
+                    }
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>

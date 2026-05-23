@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Exercício</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Validando Dados de Formulários.</h2>
+
+        <div class="form-group">
+            <label for="nome_produto">Digite o Nome do Produto:</label>
+            <input type="text" id="nome_produto" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="qtds_produtos">Informe a Quantidade:</label>
+            <input type="text" id="qtds_produtos" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="nome_cliente">Digite o Nome do Cliente:</label>
+            <input type="text" id="nome_cliente" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="endereco_entrega">Digite o Endereço da Entrega:</label>
+            <input type="text" id="endereco_entrega" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="cep_endereco">Digite o CEP:</label>
+            <input type="text" id="cep_endereco" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="forma_pagamento">Selecione a Forma de Pagamento:</label>
+            <select id="forma_pagamento">
+                <option value="">Clique para Selecionar</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="PIX">PIX</option>
+                <option value="Debito">Débito</option>
+                <option value="Cartao">Cartão de Crédito</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="info_obs">Digite sua Observação:</label>
+            <textarea id="info_obs" placeholder="Digite aqui..." rows="6"></textarea>
+        </div>        
+        <button type="submit" class="btn success" id="btn_enviar">Enviar Dados</button>
+    </main>
+
+    <script>
+
+        const btnEnviar = document.getElementById("btn_enviar")
+
+        btnEnviar.addEventListener("click", () => {
+            const campo_produto = document.getElementById("nome_produto")
+            const campo_quantidade = document.getElementById("qtds_produtos")
+            const campo_cliente = document.getElementById("nome_cliente")
+            const campo_endereco = document.getElementById("endereco_entrega")
+            const campo_cep = document.getElementById("cep_endereco")
+            const campo_pagamento = document.getElementById("forma_pagamento")
+            const campo_observacao = document.getElementById("info_obs")
+
+            const produto = campo_produto.value.trim()
+            const quantidade = campo_quantidade.value.trim()
+            const cliente = campo_cliente.value.trim()
+            const endereco = campo_endereco.value.trim()
+            const CEP = campo_cep.value.trim()
+            const pagamento = campo_pagamento.value
+            const obs = campo_observacao.value.trim()
+
+            if(produto == ""){
+                alert("Preencher o campo obrigatório NOME DO PRODUTO!")
+                campo_produto.value = ""
+                campo_produto.focus()
+            }else if(quantidade === ""){
+                alert("Preencher o campo obrigatório QUANTIDADE!")
+                campo_quantidade.value = ""
+                campo_quantidade.focus()
+            }else if(isNaN(quantidade)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                campo_quantidade.value = ""
+                campo_quantidade.focus()
+            }else if(cliente === ""){
+                alert("Preencher o campo obrigatório NOME DO CLIENTE!")
+                campo_cliente.value = ""
+                campo_cliente.focus()
+            }else if(!isNaN(cliente)){
+                alert("Digite apenas caracteres de TEXTO!")
+                campo_cliente.value = ""
+                campo_cliente.focus()
+            }else if(endereco == ""){
+                alert("Preencher o campo obrigatório ENDEREÇO!")
+                campo_endereco.value = ""
+                campo_endereco.focus()  
+            }else if(CEP === ""){
+                alert("Preencher o campo obrigatório CEP!")
+                campo_cep.value = ""
+                campo_cep.focus()
+            }else if(isNaN(CEP)){
+                alert("Digite apenas caracteres NUMÉRICOS!")
+                campo_cep.value = ""
+                campo_cep.focus()
+            }else if(pagamento == ""){
+                alert("Selecione o TIPO DO PAGAMENTO!")
+                campo_pagamento.value = ""
+                campo_pagamento.focus()  
+            }else if(obs == ""){
+                alert("Preencher o campo obrigatório OBSERVAÇÃO!")
+                campo_observacao.value = ""
+                campo_observacao.focus()  
+            }else{
+                alert(
+                    "Pedido validado com SUCESSO!\n\nProduto: " + produto + 
+                    "\nQuantidade: " + quantidade + 
+                    "\nNome do Cliente: " + cliente + 
+                    "\nEndereço: " + endereco + 
+                    "\nCEP: " + CEP + 
+                    "\nForma de Pagamento: " + pagamento + 
+                    "\nObservação: " + obs
+                )
+            }
+        })
+
+    </script>
+
+</body>
+</html>

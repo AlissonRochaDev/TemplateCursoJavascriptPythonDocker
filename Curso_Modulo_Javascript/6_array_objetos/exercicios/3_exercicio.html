@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>3º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Catálogo de Livros.</h2>
+
+        <div class="form-group">
+            <label for="titulo_livro">Digite o Título do Livro:</label>
+            <input type="text" id="titulo_livro" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="autor_livro">Digite o Autor do Livro:</label>
+            <input type="text" id="autor_livro" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar Livro</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir Catálogo</button>
+
+        <p id="msg_catalogo"></p>
+    </main>
+
+    <script>
+
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir = document.getElementById("btnExibir")
+        const titulo_input = document.getElementById("titulo_livro")
+        const autor_input = document.getElementById("autor_livro")
+        const msg = document.getElementById("msg_catalogo")
+
+        // Declarando as Variáveis Globais.
+        let catalogoLivros = []
+
+        btn_adicionar.addEventListener("click", () => {
+            let livro = {
+                titulo: titulo_input.value,
+                autor: autor_input.value
+            }
+
+            catalogoLivros.push(livro)
+            titulo_input.value = ""
+            autor_input.value = ""
+            titulo_input.focus()
+        })
+
+        btn_exibir.addEventListener("click", () => {
+            let livros_exibir = ""
+
+            // Laço de Repetição foreach!
+            catalogoLivros.forEach(item => {
+                livros_exibir = `${livros_exibir}<br>
+                Título: ${item.titulo}, Autor: ${item.autor}`
+            })
+
+            msg.innerHTML = livros_exibir
+        })
+
+    </script>
+</body>
+</html>

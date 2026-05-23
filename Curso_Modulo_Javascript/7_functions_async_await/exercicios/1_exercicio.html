@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>1º Exercício</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercício 1: Simulador de Download!</h2>
+
+        <button type="submit" id="btn_iniciar" class="btn success">Iniciar Download</button>
+
+        <p id="msg"></p>
+    </main>
+
+    <script>
+
+        const btn_iniciar = document.getElementById("btn_iniciar")
+        const msg = document.getElementById("msg")
+
+        async function processarDownload() {
+            msg.innerHTML += "Iniciando download...<br>"
+
+            // Simula o processamento demorado!
+            setTimeout(() => {
+                msg.innerHTML += "Download concluído!<br>"
+            }, 2000)
+        }
+
+        async function iniciarDownload() {
+            msg.innerHTML += "Enviando solicitação...<br>"
+            await processarDownload()
+            msg.innerHTML += "Aguardando finalização...<br>"
+        }
+
+        function fazerAcao() {
+            msg.innerHTML = ""
+            iniciarDownload()
+            // Executa sem esperar finalizar o processo!
+            msg.innerHTML += "Fazendo outra coisa...<br>"
+        }
+
+        // Evento do botão
+        btn_iniciar.addEventListener("click", fazerAcao)
+
+    </script>
+</body>
+</html>

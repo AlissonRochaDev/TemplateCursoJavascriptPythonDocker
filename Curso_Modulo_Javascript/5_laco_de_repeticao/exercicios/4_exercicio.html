@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4º Exercício - Pedido de Bebida</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Pedido de Bebida.</h2>
+
+        <button type="button" id="btn_bebida" class="btn success">Escolher Bebida</button>
+    </main>
+
+    <script>
+
+        const btnBebida = document.getElementById("btn_bebida")
+
+        btnBebida.addEventListener("click", () => {
+            let bebida = ""
+
+            do{
+                bebida = prompt("Escolha uma Bebida: Café, Suco, Chá")
+            }while(bebida != 'Café' && bebida != 'Suco' && bebida != 'Chá'){
+                alert("Você escolheu: " + bebida)
+            }
+        })
+
+    </script>
+
+</body>
+</html>

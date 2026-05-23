@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>1º Exemplo - Arrays</title>
+</head>
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>1º Exemplo - Variável Array.</h2>
+
+        <div class="form-group">
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="idade_usuario">Digite sua Idade:</label>
+            <input type="text" id="idade_usuario" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar</button>
+        <button type="submit" class="btn success" id="btnExibir">Exibir</button>
+        <button type="submit" class="btn success" id="btnExibir18">Exibir maior que 18 anos</button>
+        
+        <p id="msg_permissao"></p>   
+    </main>
+
+    <script>
+
+        // Objeto de Dados: Estrutura realizada por CHAVE e VALOR.
+        // Variável Array: Estrutura realizada por POSIÇÕES NUMÉRICAS.
+        // Toda Variável Array armazena seus dados de form numérica sequencial, iniciando sempre por zero (0).
+
+        // Forma mais pratica de criar uma Variável Array = []
+
+        const btn_exibir = document.getElementById("btnExibir")
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir_18 = document.getElementById("btnExibir18")
+        const nome_input = document.getElementById("nome_completo")
+        const idade_input = document.getElementById("idade_usuario")
+
+        const msg = document.getElementById("msg_permissao")
+
+        // Declarando as Variáveis Globais.
+        let nomes = []
+        let idades = []
+
+        btn_adicionar.addEventListener("click", () => {
+            nomes.push(nome_input.value)
+            nome_input.value = ""
+            idades.push(idade_input.value)
+            idade_input.value = ""
+
+            nome_input.focus()
+        })
+
+        // Quando utilizar um Laço de Repetição FOR com uma Variável Array, é necessário iniciar o indice sempre em zero (o).
+
+        // Esse script que percorre o Array nomes e idades, monta uma string com os nomes e as idades formatados,
+        // e exibe tudo dentro do elemento msg no HTML!
+        btn_exibir.addEventListener("click", () => {
+            let nome_exibir = ""
+
+            for(let i = 0; i < nomes.length; i++){
+                nome_exibir = `${nome_exibir}<br>${nomes[i]}, idade ${idades[i]}`
+            }
+
+            msg.innerHTML = nome_exibir
+        })
+
+        // Esse script que percorre o Array nomes e exibe apenas aquelas cuia a idade correspondente for igual ou superior a 18 anos,
+        // mostrando o nome e a idade dentro do elemento msg no HTML!
+        btn_exibir_18.addEventListener("click", () => {
+            let nomes_exibir = ""
+
+            for(let i = 0; i < nomes.length; i++){
+                if(idades[i] >= 18){
+                    nomes_exibir = `${nomes_exibir}<br>${nomes[i]}, idades ${idades[i]}`
+                }
+            }
+
+            msg.innerHTML = nomes_exibir
+        })
+
+    </script>
+</body>
+</html>

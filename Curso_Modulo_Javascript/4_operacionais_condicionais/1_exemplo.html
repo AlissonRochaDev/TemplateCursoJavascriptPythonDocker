@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Relacionais</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>1º Exemplo: Operadores Relacionais!</h2>
+        
+        <div class="form-group">
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" placeholder="Digite aqui...">
+        </div>
+        <div class="form-group">
+            <label for="idade_usuario">Digite sua Idade:</label>
+            <input type="text" id="idade_usuario" placeholder="Digite aqui...">
+        </div>
+        <p id="msg_permissao"></p>
+        <button type="submit" class="btn success" id="btn_verificar">Verificar Idade</button>
+
+        <hr>
+
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="nome_cadastro">Nome de Cadastro:</label>
+                    <input type="text" id="nome_cadastro" placeholder="Digite aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="login_acesso">Login de Acesso:</label>
+                    <input type="text" id="login_acesso" placeholder="Digite aqui...">
+                </div>
+            </div>
+        </div>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="senha">Digite uma Senha:</label>
+                    <input type="password" id="senha" placeholder="Digite aqui (Mínimo 6 caracteres)...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="rep_senha">Repita sua Senha:</label>
+                    <input type="password" id="rep_senha" placeholder="Digite aqui...">
+                </div>
+            </div>
+        </div>
+
+        <p id="msg_cadastro"></p>
+        
+        <button type="submit" class="btn success" id="btn_verificar_cadastro">Verificar Cadastro</button>
+    </main>
+
+ <script>
+
+        // 1ª Validação com Operadores Relacionais!
+        const idade_minima_permitida = 18
+
+        const btnVerificar = document.getElementById("btn_verificar")
+
+        // Variável global para a notificação do formulário!
+        const msg_verificar = document.getElementById("msg_permissao")
+
+        btnVerificar.addEventListener("click", () => {
+            const campo_nome = document.getElementById("nome_completo")
+            const campo_idade = document.getElementById("idade_usuario")
+
+            const nome_usuario = campo_nome.value.trim()
+            const idade_usuario = campo_idade.value.trim()
+
+            if(nome_usuario === ""){
+                alert("Preencher o campo obrigatório NOME!")
+                campo_nome.value = ""
+                campo_nome.focus()
+            }else if(idade_usuario === ""){
+                alert("Preencher o campo obrigatório IDADE!")
+                campo_idade.value = ""
+                campo_idade.focus()
+            }else if(isNaN(idade_usuario)){
+                alert("Preenher a IDADE com caracteres numéricos!")
+                campo_idade.value = ""
+                campo_idade.focus()
+            }else if(idade_usuario < idade_minima_permitida){
+                alert(`${nome_usuario}, você não poderá JOGAR este GAME/JOGO, pois você tem apenas ${idade_usuario} anos de idade!`)
+                msg_verificar.innerHTML = ""
+            }else{
+                msg_verificar.innerHTML = `${nome_usuario}, você poderá jogar este GAME/JOGO!`
+            }
+        })
+
+        //  ========================================
+
+        // 2ª Validação com Operadores Relacionais!
+        const senha_minima = 6
+        const senha_maxima = 8
+
+        const btnVerificarCadastro = document.getElementById("btn_verificar_cadastro")
+
+        // Variável global para a notificação do formulário!
+        const msg_cadastro = document.getElementById("msg_cadastro")
+
+        btnVerificarCadastro.addEventListener("click", () => {
+            const campoNome = document.getElementById("nome_cadastro")
+            const campoLogin = document.getElementById("login_acesso")
+            const campoSenha = document.getElementById("senha")
+            const campoRepSenha = document.getElementById("rep_senha")
+
+            const nome = campoNome.value.trim()
+            const login = campoLogin.value.trim()
+            const senha = campoSenha.value.trim()
+            const repSenha = campoRepSenha.value.trim()
+
+            if (nome === "") {
+                alert("Preencher o campo NOME")
+                campoNome.value = ""
+                campoNome.focus()
+            } else if (login === "") {
+                alert("Preencher o campo LOGIN")
+                campoLogin.value = ""
+                campoLogin.focus()
+            } else if (senha === "") {
+                alert("Preencher o campo SENHA")
+                campoSenha.value = ""
+                campoSenha.focus()
+            } else if (repSenha === "") {
+                alert("Preencher o campo REPETIR SENHA")
+                campoRepSenha.value = ""
+                campoRepSenha.focus()
+            } else if (senha.length < senha_minima){
+                alert(`A SENHA deverá conter no mínimo ${senha_minima} caracteres!`)
+            } else if (senha.length > senha_maxima){
+                alert(`A SENHA deverá conter no MÁXIMO ${senha_maxima} caracteres!`)
+            } else if (senha != repSenha){
+                alert(`O campo REPETIR SENHA deve ser IGUAL ao campo SENHA!`)
+            } else {
+                alert(`Cadastro realizado com SUCESSO!`)
+                msg_cadastro.innerHTML = "SUCESSO: Formulário preenchido corretamente!"
+            }
+        })        
+
+    </script>    
+
+</body>
+</html>

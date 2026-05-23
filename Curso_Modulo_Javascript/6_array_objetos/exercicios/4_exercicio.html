@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>4º Exercício</title>
+</head>
+
+<body>
+    <header class="header-main">
+        <h1>Lógica de programação com Javascript Nativo</h1>
+    </header>
+
+    <main class="main-content">
+        <h2>Inventário de Produtos.</h2>
+
+        <div class="form-group">
+            <label for="nome_produto">Digite o Nome do Produto:</label>
+            <input type="text" id="nome_produto" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="valor_produto">Digite o Valor do Produto:</label>
+            <input type="text" id="valor_produto" placeholder="Digite aqui...">
+        </div>
+
+        <div class="form-group">
+            <label for="quantidade_produto">Digite a Quantidade em Estoque:</label>
+            <input type="text" id="quantidade_produto" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnAdicionar">Adicionar Produto</button>
+
+        <button type="submit" class="btn success" id="btnExibir">Exibir Inventário</button>
+
+        <hr>
+
+        <div class="form-group">
+            <label for="quantidade_filtro">
+                Digite a Quantidade Abaixo de:
+            </label>
+
+            <input type="text" id="quantidade_filtro" placeholder="Digite aqui...">
+        </div>
+
+        <button type="submit" class="btn success" id="btnFiltrar">Filtrar Produtos</button>
+
+        <p id="msg_inventario"></p>
+    </main>
+
+    <script>
+
+        const btn_adicionar = document.getElementById("btnAdicionar")
+        const btn_exibir = document.getElementById("btnExibir")
+        const btn_filtrar = document.getElementById("btnFiltrar")
+
+        const nome_input = document.getElementById("nome_produto")
+        const valor_input = document.getElementById("valor_produto")
+        const quantidade_input = document.getElementById("quantidade_produto")
+        const quantidade_filtro = document.getElementById("quantidade_filtro")
+
+        const msg = document.getElementById("msg_inventario")
+
+        // Declarando as Variáveis Globais.
+        let inventarioProdutos = []
+
+        btn_adicionar.addEventListener("click", () => {
+            let produto = {
+                nome: nome_input.value,
+                valor: valor_input.value,
+                quantidade: quantidade_input.value
+            }
+
+            inventarioProdutos.push(produto)
+            nome_input.value = ""
+            valor_input.value = ""
+            quantidade_input.value = ""
+            nome_input.focus()
+        })
+
+        btn_exibir.addEventListener("click", () => {
+            let produtos_exibir = ""
+
+            // Laço de Repetição foreach!
+            inventarioProdutos.forEach(item => {
+                produtos_exibir = `${produtos_exibir}<br>
+                Produto: ${item.nome}, Valor: R$ ${item.valor}, Quantidade: ${item.quantidade}`
+            })
+
+            msg.innerHTML = produtos_exibir
+        })
+
+        btn_filtrar.addEventListener("click", () => {
+            let produtos_filtrados = ""
+
+            for (let i = 0; i < inventarioProdutos.length; i++) {
+                if (inventarioProdutos[i].quantidade < quantidade_filtro.value) {
+                    produtos_filtrados = `${produtos_filtrados}<br>
+                    Produto: ${inventarioProdutos[i].nome}, Quantidade: ${inventarioProdutos[i].quantidade}`
+                }
+            }
+
+            msg.innerHTML = produtos_filtrados
+        })
+
+        btn_filtrar.addEventListener("click", () => {
+            let produtos_filtrados = ""
+
+            for (let i = 0; i < inventarioProdutos.length; i++) {
+                if (Number(inventarioProdutos[i].quantidade) < Number(quantidade_filtro.value)) {
+                    produtos_filtrados = `${produtos_filtrados}<br>
+                    Produto: ${inventarioProdutos[i].nome}, Quantidade: ${inventarioProdutos[i].quantidade}`
+                }
+            }
+
+            msg.innerHTML = produtos_filtrados
+        })
+
+    </script>
+</body>
+
+</html>
